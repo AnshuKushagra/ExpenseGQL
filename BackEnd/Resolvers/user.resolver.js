@@ -2,7 +2,7 @@ import { Query } from "mongoose";
 import { users } from "../DummyData/data.js";
 const userResolver = {
   Query: {
-    users: () => {
+    users: (_, __, { req, res }) => {
       return users;
     },
     user: (_, { userId }) => {
