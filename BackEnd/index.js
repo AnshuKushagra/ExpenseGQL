@@ -52,12 +52,19 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//  This code initializes and starts the Apollo Server
 const server = new ApolloServer({
   typeDefs: mergedTypeDefs,
   resolvers: mergedResolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
+// Prepares the server for accepting requests
 await server.start();
+
+// CONNECTION OF APOLLO TO EXPRESS
+// For the Apollo Server to actually receive and process requests, you need to attach it to Express.js like this:
+// 👇
+
 app.use(
   "/",
   cors({
