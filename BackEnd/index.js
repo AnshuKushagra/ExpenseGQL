@@ -61,6 +61,8 @@ const server = new ApolloServer({
 // Prepares the server for accepting requests
 await server.start();
 
+// COMMENTS
+
 // CONNECTION OF APOLLO TO EXPRESS
 // For the Apollo Server to actually receive and process requests, you need to attach it to Express.js like this:
 // 👇
