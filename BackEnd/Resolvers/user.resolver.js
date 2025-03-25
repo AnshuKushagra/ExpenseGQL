@@ -1,5 +1,3 @@
-import { Query } from "mongoose";
-import { users } from "../DummyData/data.js";
 import User from "../Models/user.model.js";
 import bcrypt from "bcryptjs";
 const userResolver = {
@@ -27,6 +25,7 @@ const userResolver = {
           profilePicture: gender === "male" ? boyProfilePic : girlProfilePic,
         });
         await newUser.save();
+        //COMMENT context.login(newUser) tells Passport.js to log in the user and store session details.
         await context.login(newUser);
         return newUser;
       } catch (error) {
