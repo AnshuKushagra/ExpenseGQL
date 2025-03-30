@@ -1,5 +1,6 @@
 import Transaction from "../Models/transaction.model.js";
-
+import mongoose from "mongoose";
+const { ObjectId } = mongoose.Types;
 const transactionResolver = {
   Query: {
     transactions: async (_, __, context) => {
@@ -17,7 +18,13 @@ const transactionResolver = {
     },
     transaction: async (_, { transactionId }) => {
       try {
-        const transaction = await Transaction.findById({ transactionId });
+        // const transaction = await Transaction.findById({
+        //   // _id: new mongoose.Types.ObjectId(transactionId),
+        // });
+        const transaction = await Transaction.findById(
+          new ObjectId(transactionId)
+        );
+        console.log(transaction);
         return transaction;
       } catch (error) {
         console.error("Error getting transaction:", error);

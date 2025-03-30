@@ -14,11 +14,6 @@ function App() {
 
   if (loading) return null;
 
-  // CONSOLE
-  console.log("Authenticated user");
-  console.log("Loading", loading);
-  console.log(data.authUser);
-
   return (
     <>
       {data?.authUser && <Header />}

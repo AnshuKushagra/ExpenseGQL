@@ -9,7 +9,7 @@ export const configurePassport = async () => {
     done(null, user.id); // Stores only user ID in session
   });
   passport.deserializeUser(async (id, done) => {
-    console.log("Deserializing User");
+    // console.log("Deserializing User");
     try {
       const user = await User.findById(id);
       done(null, user); // Retrieves full user object from DB
