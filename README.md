@@ -34,6 +34,54 @@ DevOps & Tools:
 
 
 
+🔧 Installation & Setup
+1️⃣ Clone the Repository
+sh
+Copy
+Edit
 git clone https://github.com/yourusername/expense-tracker.git
 cd expense-tracker
+
+2️⃣ Install Dependencies
+Backend
+sh
+Copy
+Edit
+cd BackEnd
+npm install
+Frontend
+sh
+Copy
+Edit
+cd ../FrontEnd
+npm install
+
+3️⃣ Set Up Environment Variables
+Create a .env file in BackEnd/ and FrontEnd/ with required configurations.
+
+env
+Copy
+Edit
+# Backend/.env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+env
+Copy
+Edit
+# FrontEnd/.env
+REACT_APP_GRAPHQL_ENDPOINT=http://localhost:5000/graphql
+
+4️⃣ Start the Application
+Backend
+sh
+Copy
+Edit
+cd BackEnd
+npm start
+Frontend
+sh
+Copy
+Edit
+cd ../FrontEnd
+npm start
 
