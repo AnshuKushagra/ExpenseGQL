@@ -31,3 +31,9 @@ DevOps & Tools:
 - Git & GitHub (Version Control)
 - Nodemon (Backend Auto-Restart)
 - Cross-Env (Environment Variable Management)
+
+
+
+git clone https://github.com/yourusername/expense-tracker.git
+cd expense-tracker
+
