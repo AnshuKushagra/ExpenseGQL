@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import path from "path";
 import passport from "passport";
 import session from "express-session";
 import connectMongo from "connect-mongodb-session";
@@ -20,6 +20,7 @@ import { connectDB } from "./db/connectDB.js";
 dotenv.config();
 configurePassport();
 
+const __dirname = path.resolve();
 const app = express();
 const httpServer = http.createServer(app);
 
@@ -79,6 +80,14 @@ app.use(
     context: async ({ req, res }) => buildContext({ req, res }),
   })
 );
+
+// IMP
+// This code is used for deployment !
+app.use(express.static(path.join(__dirname, "FrontEnd/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "FrontEnd/dist", "index.html"));
+});
 
 // Modified server startup
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
